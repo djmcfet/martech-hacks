@@ -1,0 +1,866 @@
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"
+   xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+   <!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
+   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="format-detection" content="date=no" />
+   <meta name="format-detection" content="address=no" />
+   <meta name="format-detection" content="telephone=no" />
+   <meta name="x-apple-disable-message-reformatting" />
+   <!--[if !mso]><!-->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+   <!--<![endif]-->
+   <title>Martech Hacks</title>
+   <!--[if gte mso 9]>
+      <style type="text/css" media="all">
+         sup { font-size: 100% !important; }
+      </style>
+      <![endif]-->
+   <style media="screen" type="text/css">
+      /* Linked Styles */
+      body {
+         padding: 0 !important;
+         margin: 0 !important;
+         display: block !important;
+         min-width: 100% !important;
+         width: 100% !important;
+         background: #f4f4f7;
+         -webkit-text-size-adjust: none
+      }
+
+      a {
+         color: #45abd9;
+         text-decoration: none
+      }
+
+      p {
+         padding: 0 !important;
+         margin: 0 !important
+      }
+
+      img {
+         -ms-interpolation-mode: bicubic;
+         /* Allow smoother rendering of resized image in Internet Explorer */
+      }
+
+      /* Mobile styles */
+
+      @media only screen and (max-device-width: 480px),
+      only screen and (max-width: 480px) {
+         .mobile-shell {
+            width: 100% !important;
+            min-width: 100% !important;
+         }
+
+         .td {
+            width: 100% !important;
+            min-width: 100% !important;
+            padding: 0px 10px 0px 10px !important;
+         }
+
+         .top-bar {
+            padding: 10px !important
+         }
+
+         .main {
+            padding: 0px 0px 0px 0px !important;
+         }
+
+         .img-left {
+            text-align: left !important;
+         }
+
+         .logo {
+            text-align: center !important;
+         }
+
+         .logo-container {
+            padding-left: 0px !important
+         }
+
+         .spacer {
+            padding: 20px 0px 0px 0px !important;
+            background-color: #ffffff;
+         }
+
+         .fluid-img img {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+         }
+
+         .section {
+            padding: 25px 25px 25px 25px !important;
+         }
+
+         .text-left {
+            text-align: left !important;
+         }
+
+         .text-center {
+            text-align: center !important;
+         }
+
+         .footer {
+            padding: 25px 25px 25px 25px !important
+         }
+
+         .content {
+            padding: 20px 20px 20px 20px !important
+         }
+
+         .cta-button {
+            padding: 15px 20px 15px 20px !important
+         }
+
+         .cta-button-container {
+            padding: 15px 20px 15px 20px !important
+         }
+
+         .social-button {
+            text-align: center !important;
+         }
+
+         .column,
+         .column-top,
+         .column-bottom,
+         .column-dir {
+            float: left !important;
+            width: 100% !important;
+            display: block !important;
+         }
+
+         .content-spacing {
+            width: 15px !important;
+         }
+
+         .column-grid,
+         .column-grid-top,
+         .column-grid-bottom,
+         .column-grid-dir {
+            float: left !important;
+            width: 50% !important;
+            display: block !important;
+         }
+
+         .content-grid-spacing {
+            width: 15px !important;
+         }
+
+         .mobile-br-5 {
+            height: 5px !important;
+         }
+
+         .mobile-br-10 {
+            height: 10px !important;
+         }
+
+         .mobile-br-15 {
+            height: 15px !important;
+         }
+
+         .mobile-br-25 {
+            height: 25px !important;
+         }
+
+         .mobile-br-35 {
+            height: 35px !important;
+         }
+
+         .center {
+            margin: 0 auto !important;
+         }
+
+         .m-td,
+         .hide-for-mobile {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+            min-height: 0 !important;
+         }
+
+         .mobile-block {
+            display: block !important;
+         }
+
+         .text-footer-r,
+         .img-m-center {
+            text-align: center !important;
+         }
+      }
+   </style>
+</head>
+
+<body class="body"
+   style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#F4F4F7; -webkit-text-size-adjust:none">
+   <table background="#F4F4F7" border="0" cellpadding="0" cellspacing="0" height="100%"
+      style="background-color: #F4F4F7" width="100%">
+      <tbody>
+         <tr>
+            <td align="center" valign="top">
+               <table border="0" cellpadding="0" cellspacing="0" class="mobile-shell" width="640">
+                  <tbody>
+                     <tr>
+                        <td class="td" style="width:640px; min-width:640px">
+                           <!--START TOP SPACER BAR-->
+                           <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                 <tr>
+                                    <td class="top-bar" style="padding:10px"></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!--END TOP SPACER BAR-->
+                           <!-- START MAIN BODY SECTION -->
+                           <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                 <tr>
+                                    <td class="main" style="padding:0px 0px 0px 0px">
+                                       <!-- START UPPER LOGO -->
+                                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td class="logo-container"
+                                                   style="padding-left: 25px; padding-top: 25px;">
+                                                   <div class="logo" style="text-align:left"><a
+                                                         href="https://www.martech-hacks.com" target="_blank"><img
+                                                            alt="" border="0"
+                                                            src="http://elapfel.com/wp-content/uploads/2022/06/cropped-martechhackslogo.png"
+                                                            width="300" /></a></div>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- END UPPER LOGO -->
+                                       <!-- TABLE SPACE -->
+                                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td bgcolor="#ffffff" class="spacer" height="1"
+                                                   style="background-color: #fffffff; padding:20px 0px 0px 0px"></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- END TABLE SPACE -->
+                                       <!-- START HEADER IMAGE -->
+                                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td>
+                                                   <div class="fluid-img"><a href="https://www.martech-hacks.com"
+                                                         target="_blank"><img alt="" border="0"
+                                                            src="http://elapfel.com/wp-content/uploads/2022/06/e-mail-marketing-2745216.jpg"
+                                                            width="640" /></a></div>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- END HEADER IMAGE-->
+                                       <!-- START MAIN BODY CONTENT -->
+                                       <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td class="section" style="padding:25px 25px 25px 25px">
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <!-- START HEADER TEXT -->
+                                                      <tr>
+                                                         <td>
+                                                            <div class="text-center"
+                                                               style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:24px; line-height:24px; text-align:center;font-weight: 700">
+                                                               Here is an example email template
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END HEADER TEXT -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START BODY TEXT -->
+                                                      <tr>
+                                                         <td>
+                                                            <div class="text-left"
+                                                               style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:16px; line-height:24px; text-align:left;font-weight: 400">
+                                                               Hi there!
+
+                                                               <br><br>
+
+                                                               You can change the text, colours, images and branding as
+                                                               you need. The template is modular, so you can add and
+                                                               remove sections, and is mobile responsive.
+
+                                                               <br><br>
+                                                               Below is a CTA
+
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END BODY TEXT -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START CTA -->
+                                                      <tr>
+                                                         <td align="center" class="content"
+                                                            style="padding: 20px 50px 20px 50px;">
+                                                            <table bgcolor="#050052" border="0" cellpadding="0"
+                                                               cellspacing="0" class="center"
+                                                               style="border-radius: 2px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td class="cta-button"
+                                                                        style=" font-family: 'Poppins', Arial, sans-serif; font-size:18px; line-height:24px; text-align:center; font-weight:600; padding:15px 35px 15px 35px; min-width: 150px;">
+                                                                        <a href="#"
+                                                                           style="color:#ffffff; text-decoration:none; "
+                                                                           target="_blank">
+                                                                           Click here
+                                                                        </a>
+                                                                     </td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END CTA -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START SUB-HEADER TEXT -->
+                                                      <tr>
+                                                         <td>
+                                                            <div class="text-center"
+                                                               style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:20px; line-height:24px; text-align:center;font-weight: 700">
+                                                               This is a sub-header. Below is a body image.
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SUB-HEADER TEXT -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START BODY IMAGE -->
+                                                      <tr>
+                                                         <td>
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                               width="100%">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td>
+                                                                        <div class="fluid-img"><a href="#"
+                                                                              target="_blank"><img alt="" border="0"
+                                                                                 src="http://elapfel.com/wp-content/uploads/2022/06/kitty-2948404_640.jpg"
+                                                                                 width="589" /></a></div>
+                                                                     </td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END BODY IMAGE-->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!--START PROCESS HEADER-->
+                                                      <tr>
+                                                         <td style="padding-bottom: 15px;">
+                                                            <div class="text-center"
+                                                               style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:20px; line-height:24px; text-align:center;font-weight: 700">
+                                                               <b>Below are 3 images for showing a process</b>
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                      <!--END PROCESS HEADER-->
+                                                      <!-- START THREE COLUMNS -->
+                                                      <tr>
+                                                         <td class="section" style="padding:15px 25px 25px 25px">
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                               width="100%">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="265">
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="img-center"
+                                                                                       style="font-size:0pt; line-height:0pt; text-align:center; ">
+                                                                                       <img alt="" border="0"
+                                                                                          src="http://elapfel.com/wp-content/uploads/2022/06/1.png"
+                                                                                          style="border-radius: 5px"
+                                                                                          width="160" /></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="h3-center"
+                                                                                       style="color:#050052; font-family: Arial, sans-serif; font-size:15px; line-height:20px; text-align:center;  font-weight: 600;">
+                                                                                       Step one
+                                                                                    </div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="40">
+                                                                        <div class="mobile-br-35"
+                                                                           style="font-size:0pt; line-height:0pt;">
+                                                                        </div>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="265">
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="img-center"
+                                                                                       style="font-size:0pt; line-height:0pt; text-align:center; ">
+                                                                                       <img alt="" border="0"
+                                                                                          src="http://elapfel.com/wp-content/uploads/2022/06/2.png"
+                                                                                          style="border-radius: 5px"
+                                                                                          width="160" /></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="h3-center"
+                                                                                       style="color:#050052; font-family: Arial, sans-serif; font-size:15px; line-height:20px; text-align:center;  font-weight: 600;">
+                                                                                       Step two</div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="40">
+                                                                        <div class="mobile-br-35"
+                                                                           style="font-size:0pt; line-height:0pt;">
+                                                                        </div>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="265">
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="img-center"
+                                                                                       style="font-size:0pt; line-height:0pt; text-align:center; ">
+                                                                                       <img alt="" border="0"
+                                                                                          src="http://elapfel.com/wp-content/uploads/2022/06/3.png"
+                                                                                          style="border-radius: 5px"
+                                                                                          width="160" /></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                 <td style="padding-bottom: 5px;">
+                                                                                    <div class="h3-center"
+                                                                                       style="color:#050052; font-family: Arial, sans-serif; font-size:15px; line-height:20px; text-align:center;  font-weight: 600;">
+                                                                                       Step three</div>
+                                                                                 </td>
+                                                                              </tr>
+
+
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </th>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END THREE COLUMNS -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START PROMOCODE SECTION -->
+                                                      <tr>
+                                                         <td>
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                               width="100%">
+                                                               <tbody>
+                                                                  <!-- START HEADER -->
+                                                                  <tr>
+                                                                     <td style="padding-bottom: 22px;">
+                                                                        <div style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:16px; line-height:24px; text-align:left;font-weight: 600">
+                                                                           Here is your referral link. Send it to your
+                                                                           friend and we will send your voucher</div>
+                                                                     </td>
+                                                                  </tr>
+                                                                  <!-- END HEADER -->
+                                                                  <tr>
+                                                                     <td>
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <!-- START PROMOCODE BOX -->
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td align="center" class="content"
+                                                                                    style="padding: 0px 50px 0px 50px;">
+                                                                                    <table bgcolor="#ededed" border="0"
+                                                                                       cellpadding="0" cellspacing="0"
+                                                                                       class="center"
+                                                                                       style="border-radius: 5px; border: 2px solid #050052">
+                                                                                       <tbody>
+                                                                                          <tr>
+                                                                                             <td style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:16px; line-height:24px; text-align:center; font-weight:400; padding:15px 35px 15px 35px">
+                                                                                                <span class="link-white"
+                                                                                                   style="color:#050052; text-decoration:none;word-break: break-all;">https://www.martech-hacks.com/referral?id=hads7-3h4b28-cwbe73-nusda</span>
+                                                                                             </td>
+                                                                                          </tr>
+                                                                                       </tbody>
+                                                                                    </table>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <!-- END PROMOCODE BOX -->
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END PROMOCODE SECTION -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!-- START LINK SHARING BUTTONS -->
+                                                      <tr>
+                                                         <td>
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                               width="100%">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <th align="left" class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0;"
+                                                                        width="265">
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td>
+                                                                                    <div
+                                                                                       style="font-size:0pt; line-height:0pt; text-align:left; max-width: 50px;margin:auto">
+                                                                                       <a
+                                                                                          href="https://api.whatsapp.com/send?text=Hi%20there!%20I%27m%20referring%20you.%20Please%20follow%20this%20link%3A%20%0Ahttps%3A%2F%2Fwww.martech-hacks.com%2Freferral%3Fid%3Dhads7-3h4b28-cwbe73-nusda"><img
+                                                                                             alt="" border="0"
+                                                                                             src="http://elapfel.com/wp-content/uploads/2022/06/whatsapp.png"
+                                                                                             style="border-radius: 5px"
+                                                                                             width="50" /></a></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <!-- START SPACE 15 -->
+                                                                              <tr>
+                                                                                 <td bgcolor="#ffffff" class="spacer15"
+                                                                                    height="1"
+                                                                                    style="background-color: #fffffff; padding:15px 0px 0px 0px">
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <!-- END SPACE -->
+                                                                              <tr>
+                                                                                 <td>
+                                                                                    <div
+                                                                                       style="color:#084B8A; font-family:Arial, sans-serif;  font-size:16px; line-height:26px; text-align:center;  font-weight: 700;">
+                                                                                       <a
+                                                                                          href="https://api.whatsapp.com/send?text=Hi%20there!%20I%27m%20referring%20you.%20Please%20follow%20this%20link%3A%20%0Ahttps%3A%2F%2Fwww.martech-hacks.com%2Freferral%3Fid%3Dhads7-3h4b28-cwbe73-nusda">Share
+                                                                                          code by Whatsapp</a></div>
+                                                                                 </td>
+                                                                              </tr>
+
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="20">
+                                                                        <div class="mobile-br-35"
+                                                                           style="font-size:0pt; line-height:0pt;">
+                                                                        </div>
+                                                                     </th>
+                                                                     <th class="column"
+                                                                        style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                                        width="265">
+                                                                        <table border="0" cellpadding="0"
+                                                                           cellspacing="0" width="100%">
+                                                                           <tbody>
+                                                                              <tr>
+                                                                                 <td>
+                                                                                    <div
+                                                                                       style="font-size:0pt; line-height:0pt; text-align:center; max-width: 45px; margin:auto">
+                                                                                       <a href="https://t.me/share/url?url=https%3A%2F%2Fwww.martech-hacks.com%2Freferral%3Fid%3Dhads7-3h4b28-cwbe73-nusda&text=Hi%20there!%20I%27m%20referring%20you.%20Please%20follow%20the%20link%20below%20%3A)"><img
+                                                                                             alt="" border="0"
+                                                                                             src="http://elapfel.com/wp-content/uploads/2022/06/telegram.png"
+                                                                                             style="border-radius: 5px"
+                                                                                             width="45" /></a></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <!-- START SPACE 15 -->
+                                                                              <tr>
+                                                                                 <td bgcolor="#ffffff" class="spacer15"
+                                                                                    height="1"
+                                                                                    style="background-color: #fffffff; padding:15px 0px 0px 0px">
+                                                                                 </td>
+                                                                              </tr>
+                                                                              <!-- END SPACE -->
+                                                                              <tr>
+                                                                                 <td>
+                                                                                    <div
+                                                                                       style="color:#084B8A; font-family:Arial, sans-serif;  font-size:16px; line-height:26px; text-align:center;  font-weight: 700;">
+                                                                                       <a href="https://t.me/share/url?url=https%3A%2F%2Fwww.martech-hacks.com%2Freferral%3Fid%3Dhads7-3h4b28-cwbe73-nusda&text=Hi%20there!%20I%27m%20referring%20you.%20Please%20follow%20the%20link%20below%20%3A)">Share
+                                                                                          code by Telegram</a></div>
+                                                                                 </td>
+                                                                              </tr>
+                                                                           </tbody>
+                                                                        </table>
+                                                                     </th>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END  LINK SHARING BUTTONS -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+                                                      <!--START SECONDARY TEXT BLOCK-->
+                                                      <tr>
+                                                         <td>
+                                                            <div class="text-left"
+                                                               style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:16px; line-height:24px; text-align:left;font-weight: 400">
+                                                               Thanks for reading our email!
+                                                               <br><br>
+                                                               All the best, <br>
+                                                               Martech Hacks
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SECONDARY TEXT BLOCK -->
+                                                      <!-- START SPACE -->
+                                                      <tr>
+                                                         <td bgcolor="#ffffff" class="spacer" height="1"
+                                                            style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                         </td>
+                                                      </tr>
+                                                      <!-- END SPACE -->
+
+                                                   </table>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- END MAIN BODY CONTENT -->
+                                       <hr style="width:90%; color: #050052; background-color: #050052;">
+                                       <!-- START FOOTER -->
+                                       <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td class="footer" style="padding:25px 25px 25px 25px">
+                                                   <!--START SOCIAL LINKS TEXT-->
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td>
+                                                               <div class="text-center"
+                                                                  style="color:#050052; font-family: 'Poppins', Arial, sans-serif; font-size:14px; line-height:24px; text-align:center;font-weight: 400">
+                                                                  <b>This is the footer<br>
+                                                                     You can include social media icons below</b>
+                                                               </div>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!--END SOCIAL LINKS TEXT-->
+                                                   <!-- TABLE SPACE -->
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td bgcolor="#ffffff" class="spacer" height="1"
+                                                               style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!-- END TABLE SPACE -->
+                                                   <!--START SOCIAL ICONS-->
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                               width="150">
+                                                               <table border="0" cellpadding="0" cellspacing="0"
+                                                                  width="100%">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <td>
+                                                                           <a href="#">
+                                                                              <div class="social-button"
+                                                                                 style="font-size:0pt; line-height:0pt; text-align:right; ">
+                                                                                 <img alt="facebook" border="0"
+                                                                                    src="http://elapfel.com/wp-content/uploads/2022/06/5282541_fb_social-media_facebook_facebook-logo_social-network_icon.png"
+                                                                                    width="40" /></div>
+                                                                           </a>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </td>
+                                                            <td style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                               width="50">
+                                                               <table border="0" cellpadding="0" cellspacing="0"
+                                                                  width="100%">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <td>
+                                                                           <a href="#">
+                                                                              <div class="social-button"
+                                                                                 style="font-size:0pt; line-height:0pt; text-align:center; ">
+                                                                                 <img alt="twitter" border="0"
+                                                                                    src="http://elapfel.com/wp-content/uploads/2022/06/5282551_tweet_twitter_twitter-logo_icon.png"
+                                                                                    width="40" /></div>
+                                                                           </a>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </td>
+
+                                                            <td style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0"
+                                                               width="150">
+                                                               <table border="0" cellpadding="0" cellspacing="0"
+                                                                  width="100%">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <td>
+                                                                           <a href="#">
+                                                                              <div class="social-button"
+                                                                                 style="font-size:0pt; line-height:0pt; text-align:left; ">
+                                                                                 <img alt="instagram" border="0"
+                                                                                    src="http://elapfel.com/wp-content/uploads/2022/06/5282544_camera_instagram_social-media_social-network_instagram-logo_icon.png"
+                                                                                    width="40" /></div>
+                                                                           </a>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!--END SOCIAL ICONS-->
+                                                   <!-- TABLE SPACE -->
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td bgcolor="#ffffff" class="spacer" height="1"
+                                                               style="background-color: #fffffff; padding:20px 0px 0px 0px">
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!-- END TABLE SPACE -->
+                                                   <!--START SENDER INFO AND UNSUBSCRIBE-->
+                                                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td>
+                                                               <div class="text-left"
+                                                                  style="color:#313131; font-family: 'Poppins', Arial, sans-serif; font-size:13px; line-height:24px; text-align:left;font-weight: 400">
+                                                                  This space is for your legal info, company address
+                                                                  etc. You should also include an unsubscribe link here!
+                                                               </div>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!--END SENDER INFO AND UNSUBSCRIBE-->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- END FOOTER -->
+                                       <!--START BOTTOM SPACER BAR-->
+                                       <table style="background-color: #F4F4F7;" border="0" cellpadding="0"
+                                          cellspacing="0" width="100%">
+                                          <tbody>
+                                             <tr>
+                                                <td class="top-bar" style="padding:10px"></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!--END BOTTOM SPACER BAR-->
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</body>
+</html>
