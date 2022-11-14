@@ -1,0 +1,36 @@
+/**
+ * @OnlyCurrentDoc
+ */
+
+function doPost(e) {
+  /* Firstly, we need to define where the data is being sent to. We will get 
+  the active sheet and tab, and assign them to the 'sheet' variable */ 
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet(); 
+
+  /* Next, we get the last row with any data from the sheet. Seeing as the 
+  only row with data is the column title, this variable should have value = 1 */
+  var lastRow = sheet.getLastRow();
+
+  /* Assign the next row variable */
+  var nextRow = lastRow + 1;
+
+  /* Parse postData as JSON  */
+  var requestData = JSON.parse(e.postData.contents)
+
+  /* We use the getRange method to add the entire request parameter to a specific 
+  cell. In this case, our customer ID column (A) and the next row (2)*/
+  sheet.getRange('A' + nextRow).setValue(requestData.customerID)
+
+  /* Finally we return a success message to the request source */
+  return ContentService.createTextOutput(JSON.stringify('customer ID successfully added to database!'))
+}
+
+function doGet(e) {
+  /* Again , define the sheet var to get your spreadsheet and last row that contains data*/
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet(); 
+  var lastRow = sheet.getLastRow();
+  /* Seeing as we now have multiple customer IDs in our sheet in column A, we will want to get everything from that column. Here we make a variable and get range from the first row (containing the title) to the last row with data.  */
+  var returnData = sheet.getRange('A1:A' + lastRow).getValues()
+  /* Return the output as a JSON string */
+  return ContentService.createTextOutput(JSON.stringify(returnData))
+}
