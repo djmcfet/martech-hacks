@@ -1,0 +1,27 @@
+import json
+import requests as req
+import pandas as pd
+ 
+apikey = 'Your API key here'
+serial = 'Your domain group ID here'
+domain = 'Your domain name here'
+ 
+# edit the start and end dates for the desired period. YYYYMMDD. 
+startdate = '20221118'
+enddate = '20221120'
+ 
+url = 'https://consent.cookiebot.com/api/v1/' + apikey + '/json/domaingroup/' + serial + '/domain/' + domain + '/consent/stats?startdate=' + startdate + '&enddate=' + enddate
+ 
+response = req.get(url=url)
+responsejson = json.loads(response.text)
+consentstat = responsejson['consentstat']['consentday']
+ 
+optins = []
+ 
+for x in consentstat:
+    optins.append([x['OptInStrict'], x['TypeOptInPref'], x['TypeOptInStat'], x['TypeOptInMark'], x['OptOut']])
+ 
+df = pd.DataFrame(optins, columns=['OptInStrict', 'TypeOptInPref', 'TypeOptInStat', 'TypeOptInMark', 'OptOut'])
+ 
+# Here your Pandas dataframe is returned with the optin KPIs.
+print(df)
