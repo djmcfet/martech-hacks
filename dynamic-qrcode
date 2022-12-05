@@ -1,0 +1,49 @@
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<div id="qrcodeFinal"></div>
+<script type="text/javascript">
+
+    // create variables to hold the UTM parameters which are collected by the getURLParameter function. The desired UTM parameter is passed as a function argument. 
+    const utm_source = getUrlParameter('utm_source');
+    const utm_medium = getUrlParameter('utm_medium');
+    const utm_campaign = getUrlParameter('utm_campaign');
+
+    // define function to get the URL parameters
+    function getUrlParameter(targetURLParameter) {
+        var pageURL = decodeURIComponent(window.location.search.substring(1))
+        var URLVariables = pageURL.split('&')
+        var parameterName;
+        
+        for (i = 0; i < URLVariables.length; i++) {
+            parameterName = URLVariables[i].split('=');
+            if (parameterName[0] === targetURLParameter) {
+                console.log(targetURLParameter)
+                return parameterName[1] === undefined ? "Unknown" : parameterName[1];
+            }
+        }
+    };
+
+    // get the timestamp that the QR code was generated in seconds (on page load)
+    const timestampNow = Math.floor(Date.now() / 1000)
+    const timestamp_param = "ts=" + timestampNow
+
+    // define the base link. In production, remember to replace this with your link!
+    const base_link = "https://martech-hacks.com/?"
+
+    // combine utm_parameters into one variable
+    const utm_params = "utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign
+
+    // create final link 
+    const final_link = base_link + utm_params + "&" + timestamp_param
+
+    // define QR code
+    var qrcode = new QRCode(document.getElementById("qrcodeFinal"), {
+        // add the final link to be encoded in the QR code
+        text: final_link,
+        width: 250,
+        height: 250,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+</script>
