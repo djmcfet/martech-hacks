@@ -16,7 +16,6 @@
         for (i = 0; i < URLVariables.length; i++) {
             parameterName = URLVariables[i].split('=');
             if (parameterName[0] === targetURLParameter) {
-                console.log(targetURLParameter)
                 return parameterName[1] === undefined ? "Unknown" : parameterName[1];
             }
         }
