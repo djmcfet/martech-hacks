@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      -webkit-text-size-adjust: 100%;
+      font-family: Poppins, sans-serif;
+      color: #222222;
+      text-align: center;
+      margin: 0px;
+    }
+
+    .outer {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+
+    .modal {
+      border-radius: 10px;
+      position: absolute;
+      width: 90%;
+      height: 95%;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      margin: auto;
+      background-color: #3c7edd;
+    }
+
+    .button-close {
+      position: absolute;
+      z-index: 99;
+      right: 12px;
+      top: 12px;
+    }
+
+    #button-container {
+      height: 10%;
+      padding: 4%;
+      display: block;
+    }
+
+    #header-container {
+      font-size: 3vh;
+      padding: 5%;
+      font-weight: 600;
+      color: #ffffff;
+      height: 20%;
+    }
+
+    #counter-container {
+      font-size: 2.5vh;
+      padding: 5%;
+      font-weight: 600;
+      color: #ffffff;
+      height: 20%;
+    }
+
+    #tap-container {
+      height: 50%;
+      padding: 5%;
+    }
+
+    #tap-container img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    #play-button {
+      background-color: #DD001D;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 10px 10px 8px -6px rgba(0, 0, 0, 0.31);
+      color: #ffffff;
+      font-size: 3vh;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="modal">
+      <div id="header-container">
+        How many times can you tap in 10 seconds?
+      </div>
+      <div id="tap-container">
+        <img src="https://cdn.pixabay.com/photo/2014/03/25/17/00/target-297821_960_720.png">
+      </div>
+      <div id="counter-container">
+      </div>
+      <div id="button-container">
+        <div id="play-button">
+          Play!
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var counter = 0;
+  document.getElementById('play-button').addEventListener("touchstart", start_game);
+
+  function start_game() {
+    document.getElementById('counter-container').innerHTML = '<div id="counter">0</div> times tapped'
+    document.getElementById('header-container').innerHTML = 'Tap when ready!'
+    document.getElementById('button-container').style = 'display:none'
+    document.getElementById('tap-container').addEventListener("touchstart", count_taps);
+  }
+
+  function count_taps() {
+    if (counter == 0) {
+      document.getElementById('header-container').innerHTML = 'Tap! Only <div id="timer">10</div> seconds remaining...'
+      start_timer()
+    }
+    counter += 1
+    document.getElementById('counter').innerHTML = counter
+  }
+
+  function start_timer() {
+    var time_remaining = 10;
+    var end_timer = setInterval(function () {
+      time_remaining--;
+      if (time_remaining <= 0) {
+        clearInterval(end_timer);
+        end_game()
+      } else {
+        document.getElementById("timer").textContent = time_remaining;
+      }
+    }, 1000);
+  }
+
+  function end_game() {
+    document.getElementById('header-container').innerHTML = 'Uh oh!<br> Time\'s up'
+    document.getElementById('tap-container').removeEventListener("touchstart", count_taps);
+    if (counter >= 20) {
+        document.getElementById('counter-container').innerHTML = 'You tapped ' + counter + ' times. Well done! You\'ve earned 20% off your next order with code: GAMEWINNER'
+    } else {
+        document.getElementById('counter-container').innerHTML = 'Oh no! You tapped ' + counter + ' times. Tap 20 or more times to get a 20% promocode for your next order'
+    }
+    document.getElementById('play-button').innerHTML = 'Try again?'
+    document.getElementById('button-container').style = 'display:block'
+    document.getElementById('button-container').addEventListener("touchstart", try_again);
+  }
+
+  function try_again() {
+    counter = 0;
+    start_game();
+  }
+
+</script>
+
+</html>
