@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zenjob listings</title>
+    <style>
+        * {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            padding: 30px 0 30px 0;
+        }
+
+        main {
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            min-height: 200px
+        }
+
+        #headerImage {
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/16/11/33/bristol-2647464_960_720.jpg');
+            background-size: cover;
+            width: 100%;
+            min-height: 500px;
+            position: relative;
+        }
+
+        #headerText {
+            font-size: 2.5em;
+            background: #edededab;
+            position: absolute;
+            top: 300px;
+            left: 20px;
+            padding: 5px;
+        }
+
+        #description {
+            padding: 20px;
+        }
+
+        #cityContent {
+            display: none;
+        }
+
+        #loader {
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid rgba(118, 37, 247, 1);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+    
+        <div id="loader"></div>
+        <div id="cityContent">
+            <div id="headerImage">
+                <div id="headerText"></div>
+            </div>
+            <div id="description"></div>
+        </div>
+    </main>
+    <script>
+
+        const cityName = getUrlParameter('city');
+
+        // This function searches the URL for the 'city' parameter (passed with the triggering variable above) and returns the value of that parameter i.e. Bristol
+        function getUrlParameter(targetURLParameter) {
+            var pageURL = decodeURIComponent(window.location.search.substring(1))
+            var URLVariables = pageURL.split('&')
+            var parameterName;
+
+            for (i = 0; i < URLVariables.length; i++) {
+                parameterName = URLVariables[i].split('=');
+                if (parameterName[0] === targetURLParameter) {
+                    return parameterName[1] === undefined ? "Unknown" : parameterName[1];
+                }
+            }
+        };
+
+        /* This function puts the data returned with the API at the bottom into the appropriate fields that we defined in the HTML code.*/
+        function displayFetchedData(data) {
+            /* Once the data is returned, we can hide the loader icon ...*/
+            document.getElementById('loader').style.display = 'none'
+            /* ... and show everything that was wrapped in the cityContent DIV -> the header image and texts*/
+            document.getElementById('cityContent').style.display = 'block'
+            document.getElementById('headerText').innerHTML = 'Welcome to ' + data.cityName + '!'
+            document.getElementById('description').innerHTML = data.description
+            document.getElementById('headerImage').style.backgroundImage = "url('" + data.imageUrl + "')"
+        }
+
+        /* This API call contacts the Google Sheets webapp API endpoint with the city parameter, and then triggers the displayFetchedData() function with the data returned from the sheet*/
+        fetch("https://script.google.com/macros/s/AKfycbwWDoMOtDoHgOCKP9jGqnJZj7iHLCPMhLT82Jzfgk2XODLy_usPlRGi6q3PP7QjfSlA9A/exec" + "?city=" + cityName)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                displayFetchedData(data)
+            })
+
+    </script>
+</body>
+
+</html>
