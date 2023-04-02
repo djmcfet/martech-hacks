@@ -1,0 +1,66 @@
+/**
+ * @OnlyCurrentDoc
+ */
+
+function doGet(request) {
+  var content;
+  try {
+    content = "the webapp is working!";
+    //content = retrieveRow(request);
+  } catch (err) {
+    content = '<error>' + (err.message || err) + '</error>';
+  }
+  return ContentService.createTextOutput(JSON.stringify(content)).setMimeType(ContentService.MimeType.JSON)
+}
+
+function retrieveRow(request) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var lastColumn = sheet.getLastColumn()
+  var lastRow = sheet.getLastRow();
+  var cityColumn = 'A'
+
+  var targetCity = 'Bristol'
+  //var targetCity = request.parameter.city
+
+  // Only attempt to find city data if the city parameter in specified in the URL. Otherwise, return cityNotFound error. 
+  if (targetCity != undefined) {
+
+    // Search for specified city parameter in the city column and return the corresponding row
+    var rowNumber;
+    var cityNames = sheet.getRange(cityColumn + "1:" + cityColumn + lastRow).getValues();
+    for (var i = 0; i < cityNames.length; i++) {
+      if (cityNames[i] == targetCity) {
+        rowNumber = i + 1;
+      }
+    }
+    console.log(rowNumber)
+
+    // Get the city details from the corresponding row
+    var selectedCityData = sheet.getRange(rowNumber, 1, 1, lastColumn).getValues();
+    var selectedCityDataArray = selectedCityData[0]
+
+    console.log(selectedCityDataArray)
+
+    // Get header names from sheet
+    var headerNames = sheet.getRange(1, 1, 1, lastColumn).getValues();
+    var headerNamesArray = headerNames[0]
+
+    console.log(headerNamesArray)
+
+    // Use header names and each column index in the corresponding row to create a JSON object with key-value pairs
+    var selectedCityDetailsObject = new Object();
+    headerNamesArray.forEach((value, index) => {
+      selectedCityDetailsObject[value] = selectedCityDataArray[index]
+      return selectedCityDetailsObject;
+    });
+    console.log(selectedCityDetailsObject)
+    //return selectedCityDetailsObject
+
+  } else {
+    return 'cityNotFound'
+  }
+}
+
+
+
+
