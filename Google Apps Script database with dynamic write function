@@ -1,0 +1,71 @@
+/**
+ * @OnlyCurrentDoc
+ */
+
+function doPost(request) {
+  var content;
+  /* Trigger add row function and return error message in case of failure */
+  try {
+    content = addRow(request)
+  } catch (err) {
+    content = '<error>' + (err.message || err) + '</error>';
+  }
+  /* return success/fail status message to endpoint */
+  return ContentService.createTextOutput(JSON.stringify(content))
+}
+
+function addRow(request) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var postContents = JSON.parse(request.postData.contents);
+
+  // define row number to add data to (the next empty row in the sheet)
+  var lastRow = sheet.getLastRow();
+  var rowNumber = lastRow + 1;
+
+  // define last column in the data sheet...
+  var lastColumn = sheet.getLastColumn();
+
+  //...and get the column header names
+  var headers = sheet.getRange(1, 1, 1, lastColumn).getValues()
+
+  // first, we handle the data for column names aleady in the sheet. Loop through the JSON object sent with the POST request. In case the JSON object has a key which matches a header, push the associated value into the rowData array. Otherwise push an empty value. 
+  var dataForExistingColumns = []
+  for (i = 0; i < headers[0].length; i++) {
+    if (postContents.hasOwnProperty(headers[0][i])) {
+      dataForExistingColumns.push(postContents[headers[0][i]])
+    } else {
+      dataForExistingColumns.push('')
+    }
+  }
+
+  // nest the rowData array into another array. This is necessary as we need a 2-dimensional array to set values over multiple rows and columns
+  var dataForExistingColumnsArray = []
+  dataForExistingColumnsArray.push(dataForExistingColumns)
+
+  // add the data for existing column names into the sheet
+  sheet.getRange(rowNumber, 1, 1, dataForExistingColumnsArray[0].length).setValues(dataForExistingColumnsArray)
+
+  // now to handle the data for unknown column names. Loop through the JSON object and in case that the key doesn't match the existing column headers, push both the additional key and value into the approrpiate arrays 
+  var additionalColumnNames = []
+  var additionalColumnValues = []
+
+  for (var name in postContents) {
+    if (headers[0].includes(name) == false) {
+      additionalColumnNames.push(name)
+      additionalColumnValues.push(postContents[name])
+    }
+  }
+
+  // nest both the additionalColumn arrays like we did before to create 2-dimensional arrays
+  var additionalColumnNamesArray = []
+  var additionalColumnValuesArray = []
+  additionalColumnNamesArray.push(additionalColumnNames)
+  additionalColumnValuesArray.push(additionalColumnValues)
+
+  // finally add the new column names in the header/first row, and add the data in the matching columns and row
+  if (additionalColumnNamesArray[0].length > 0) {
+    sheet.getRange(1, lastColumn + 1, 1, additionalColumnNamesArray[0].length).setValues(additionalColumnNamesArray)
+    sheet.getRange(rowNumber, lastColumn + 1, 1, additionalColumnNamesArray[0].length).setValues(additionalColumnValuesArray)
+  }
+  return 'success'
+}
