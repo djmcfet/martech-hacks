@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App download banner</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: grey;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .app-download-banner {
+            display: none;
+            align-items: center;
+            width: auto;
+            background-color: white;
+            height: fit-content;
+            padding: 5px;
+        }
+
+        #app-download-banner-modal {
+            position: absolute;
+            width: 95%;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        #app-download-banner-top {
+            position: relative;
+        }
+
+        #close {
+            width: 5%;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #logo {
+            width: 20%;
+            display: flex;
+            align-content: center;
+            margin: auto;
+        }
+
+        #logo img {
+            max-width: 70%;
+            height: auto;
+            margin: auto;
+        }
+
+        #description {
+            width: 55%;
+            text-align: center;
+        }
+
+        #header {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        #text {
+            font-size: 12px;
+        }
+
+        #button {
+            text-align: center;
+            width: 20%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-download-banner-top" class="app-download-banner">
+        <div id="close">
+            X
+        </div>
+        <div id="logo">
+            <!--Remember to replace this with your own logo!-->
+            <img src="https://martech-hacks.com/wp-content/uploads/2024/03/mini.png">
+        </div>
+        <div id="description">
+            <div id="header">Download the mobile app</div>
+            <div id="text">And get the best user experience</div>
+        </div>
+        <div id="button">
+            <a id="app-download-link">VIEW</a>
+        </div>
+    </div>
+    <script>
+
+        document.getElementById("close").addEventListener("click", showhide_banner.bind(this, 'none'));
+        window.addEventListener("load", allow_banner.bind(this, 'flex'))
+
+        function allow_banner() {
+            var app_download_banner_value = localStorage.getItem("app_download_banner");
+            // Define max screen size to hide download banner on desktop. You can increase this value if you want to include tablets. 
+            var screen_size = window.matchMedia('(max-width: 568px)')
+            if (app_download_banner_value != 'closed' && screen_size.matches) {
+                get_device_type()
+                showhide_banner('flex')
+            }
+        }
+
+        function showhide_banner(action) {
+            var banners = document.getElementsByClassName("app-download-banner");
+            Array.from(banners).forEach(banner => {
+                banner.style.display = action
+            })
+            if (action === 'none') {
+                set_close_localstorage()
+            }
+        }
+
+        function set_close_localstorage() {
+            localStorage.setItem("app_download_banner", 'closed');
+        }
+
+        function get_device_type() {
+            var userAgent = navigator.userAgent
+            var platform;
+            var app_download_link;
+            if (userAgent.includes('Android')) {
+                platform = 'Android'
+                // redirect link for Android. Add Play Store link below
+                app_download_link = 'https://www.google.com'
+            } else if (userAgent.includes('iPhone') || userAgent.includes('iPad')) {
+                platform = 'iOS'
+                // Redirect link for iOS
+                app_download_link = 'https://www.apple.com'
+            } else {
+                platform = 'non-Android or iOS'
+                // Fallback redirect for other platforms. You can include what you like here. Perhaps a redirect to your website
+                app_download_link = 'https://www.windows.com'
+            }
+            document.getElementById('app-download-link').href = app_download_link
+        }
+    </script>
+</body>
+</html>
